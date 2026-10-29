@@ -16,6 +16,16 @@ import streamlit as st
 import joblib
 import numpy as np
 
+import os
+import urllib.request
+
+DATA_PATH = "data/household_power_consumption.txt"
+DATA_URL = "https://archive.ics.uci.edu/ml/machine-learning-databases/00235/household_power_consumption.txt"
+
+if not os.path.exists(DATA_PATH):
+    os.makedirs("data", exist_ok=True)
+    urllib.request.urlretrieve(DATA_URL, DATA_PATH)
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Page Configuration (must be the FIRST Streamlit call)
 # ─────────────────────────────────────────────────────────────────────────────
